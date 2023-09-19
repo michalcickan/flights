@@ -1,6 +1,6 @@
 import Foundation
 
-struct ItinerariesQuery: QueryObject, StringConvertible {
+struct ItinerariesQuery: QueryObject, QueryStringConvertible {
     typealias Parameters = EmptyParameters
     
     var name: String { "itineraries" }
@@ -11,7 +11,7 @@ struct ItinerariesQuery: QueryObject, StringConvertible {
 }
 
 extension ItinerariesQuery {
-    struct Body: StringConvertible {
+    struct Body: QueryStringConvertible {
         
     }
 }

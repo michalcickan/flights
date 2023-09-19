@@ -1,5 +1,6 @@
 import Foundation
 
 public struct RootResponse: Decodable {
-    public var places: Places
+    public let places: PlaceConnection
+    public let onewayItineraries: OnewayItineraries
 }

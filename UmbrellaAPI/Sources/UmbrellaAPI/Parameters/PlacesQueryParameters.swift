@@ -19,12 +19,12 @@ public struct PlacesQueryParameters: ParametersStringConvertible {
 
 extension PlacesQueryParameters {
     public struct Search: ParametersStringConvertible {
-        let term: String
+        let term: String?
     }
 
     public struct Filter: ParametersStringConvertible {
         let onlyTypes: [PlaceType]
-        let groupByCity: Bool
+        let groupByCity: Bool?
     }
 
     public enum PlaceType: String, ParametersStringConvertible {
@@ -33,7 +33,7 @@ extension PlacesQueryParameters {
     }
 
     public struct Options: ParametersStringConvertible {
-        enum SortBy: String, Encodable {
+        enum SortBy: String {
             case rank = "RANK"
         }
         

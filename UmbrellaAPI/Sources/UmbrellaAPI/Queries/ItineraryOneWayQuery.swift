@@ -1,6 +1,6 @@
 import Foundation
 
-struct ItineraryOneWayQuery: QueryObject, StringConvertible {
+struct ItineraryOneWayQuery: QueryObject, QueryStringConvertible {
     typealias Parameters = EmptyParameters
     
     var name: String { "... on ItineraryOneWay" }
@@ -10,7 +10,7 @@ struct ItineraryOneWayQuery: QueryObject, StringConvertible {
 }
 
 extension ItineraryOneWayQuery {
-    struct Body: StringConvertible {
+    struct Body: QueryStringConvertible {
         let onItineraries: OnItinerariesQuery
     }
 }

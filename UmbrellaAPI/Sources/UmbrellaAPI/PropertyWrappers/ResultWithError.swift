@@ -1,14 +1,14 @@
 import Foundation
 
 @propertyWrapper
-public struct ResultWithError<T: Decodable>: Decodable {
-    public var wrappedValue: T
+struct ResultWithError<T: Decodable>: Decodable {
+    var wrappedValue: T
     
-    public init(wrappedValue: T) {
+    init(wrappedValue: T) {
         self.wrappedValue = wrappedValue
     }
     
-    public init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         guard let source = try? T(from: decoder) else {
             let containter = try decoder.container(keyedBy: CodingKeys.self)
             let error = try containter.decode(AppError.self, forKey: .error)

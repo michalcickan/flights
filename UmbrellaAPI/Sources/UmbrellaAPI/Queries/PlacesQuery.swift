@@ -1,6 +1,6 @@
 import Foundation
 
-struct PlacesQuery: QueryObject, StringConvertible {
+struct PlacesQuery: QueryObject, QueryStringConvertible {
     typealias Parameters = PlacesQueryParameters
     
     var name: String { "places" }
@@ -9,7 +9,7 @@ struct PlacesQuery: QueryObject, StringConvertible {
 }
 
 extension PlacesQuery {
-    struct Body: StringConvertible {
+    struct Body: QueryStringConvertible {
         let placeConnection: OnPlaceConnectionQuery
     }
 }

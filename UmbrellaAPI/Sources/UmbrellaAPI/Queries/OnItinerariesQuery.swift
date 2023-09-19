@@ -10,7 +10,7 @@ struct OnItinerariesQuery: QueryObject {
 }
 
 extension OnItinerariesQuery {
-    struct Body: StringConvertible {
+    struct Body: QueryStringConvertible {
         let itineraries: OnItineraryOneWayQuery?
     }
 }

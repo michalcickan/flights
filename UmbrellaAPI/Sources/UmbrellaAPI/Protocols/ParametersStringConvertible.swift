@@ -1,41 +1,7 @@
 import Foundation
 
-protocol StringConvertible {
-    var stringValue: String { get }
-}
-
 protocol ParametersStringConvertible {
     var stringValue: String { get }
-}
-
-extension StringConvertible where Self: Any {
-    var stringValue: String {
-        if let queryObject = self as? (any QueryObject) {
-            return queryObject.formattedStringValue
-        } else {
-            let mirror = Mirror(reflecting: self)
-            var properties = [String]()
-            mirror.children.forEach { child in
-                if let queryObject = child.value as? (any QueryObject) {
-                    properties.append(queryObject.formattedStringValue)
-                } else if let label = child.label, child.value as? String == "" {
-                    properties.append(label)
-                }
-            }
-            return properties.joined(separator: " ")
-        }
-    }
-}
-
-fileprivate extension QueryObject {
-    var formattedStringValue: String {
-        var properties = [name]
-        if let parameters = parameters {
-            properties.append("(\(parameters.stringValue))")
-        }
-        properties.append("{\(body.stringValue)}")
-        return properties.joined(separator: " ")
-    }
 }
 
 extension ParametersStringConvertible {
@@ -67,7 +33,7 @@ extension ParametersStringConvertible {
     }
 }
 
-extension Array where Element == ParametersStringConvertible {
+fileprivate extension Array where Element == ParametersStringConvertible {
     var stringValue: String {
         map { el in
             if let rawRepresentable = el as? (any RawRepresentable) {
@@ -77,12 +43,4 @@ extension Array where Element == ParametersStringConvertible {
         }
         .joined(separator: ",")
     }
-}
-
-func unwrap<T>(_ any: T) -> Any {
-    let mirror = Mirror(reflecting: any)
-    guard mirror.displayStyle == .optional, let first = mirror.children.first else {
-        return any
-    }
-    return unwrap(first.value)
 }

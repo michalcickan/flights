@@ -4,7 +4,7 @@ import XCTest
 @testable import UmbrellaAPI
 
 final class ClientTests: XCTestCase {
-    func testResultWithErrorWrapper_shouldThrowError_whenAppErrorPresent() async {
+    func testResultWithErrorWrapper_shouldGiveResult_whenDataPresent() async {
         let client = try! Client(baseURL: "https://api.skypicker.com/umbrella/v2/graphql")
         let result = try? await client.fetchPlacesNodes(
             params: PlacesQueryParameters(

@@ -1,6 +1,6 @@
 import Foundation
 
-struct NodeQuery: QueryObject, StringConvertible {
+struct NodeQuery: QueryObject, QueryStringConvertible {
     typealias Parameters = EmptyParameters
     
     var name: String { "node" }
@@ -9,9 +9,9 @@ struct NodeQuery: QueryObject, StringConvertible {
 }
 
 extension NodeQuery {
-    struct Body: StringConvertible {
-        let id: String
-        let legacyId: String
+    struct Body: QueryStringConvertible {
+        let id: String?
+        let legacyId: String?
         let gps: GPSQuery
     }
 }

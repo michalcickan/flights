@@ -1,6 +1,6 @@
 import Foundation
 
-struct EdgesQuery: QueryObject, StringConvertible {
+struct EdgesQuery: QueryObject, QueryStringConvertible {
     typealias Parameters = EmptyParameters
     
     var name: String { "edges" }
@@ -9,7 +9,7 @@ struct EdgesQuery: QueryObject, StringConvertible {
 }
 
 extension EdgesQuery {
-    struct Body: StringConvertible {
+    struct Body: QueryStringConvertible {
         let node: NodeQuery
     }
 }

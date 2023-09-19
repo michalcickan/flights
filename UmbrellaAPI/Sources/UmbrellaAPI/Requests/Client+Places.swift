@@ -1,5 +1,5 @@
 extension Client {
-    public func fetchPlacesNodes(params: PlacesQueryParameters) async throws -> Places {
+    public func fetchPlacesNodes(params: PlacesQueryParameters) async throws -> PlaceConnection {
         try await fetch(
             query: RootQuery(
                 places: PlacesQuery(

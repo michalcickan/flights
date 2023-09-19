@@ -1,6 +1,6 @@
 import Foundation
 
-struct GPSQuery: QueryObject, StringConvertible {
+struct GPSQuery: QueryObject, QueryStringConvertible {
     typealias Parameters = EmptyParameters
     
     var name: String { "gps" }
@@ -9,7 +9,7 @@ struct GPSQuery: QueryObject, StringConvertible {
 }
 
 extension GPSQuery {
-    struct Body: StringConvertible {
+    struct Body: QueryStringConvertible {
         let lng: String?
         let lat: String?
     }

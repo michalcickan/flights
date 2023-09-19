@@ -1,5 +1,5 @@
 import Foundation
 
-struct RootQuery: StringConvertible {
+struct RootQuery: QueryStringConvertible {
     var places: PlacesQuery?
 }
