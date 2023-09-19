@@ -1,12 +1,12 @@
 import Foundation
 
-public struct FlightSearchParameters: ParametersStringConvertible {
+public struct OneWayFlightSearchParameters: ParametersStringConvertible {
     let filter: ItinerariesFilterInput?
     let options: ItinerariesOptionsInput?
     let search: SearchOnewayInput?
 }
 
-extension FlightSearchParameters {    
+extension OneWayFlightSearchParameters {    
     public struct SearchPassengers: ParametersStringConvertible {
         let adults: Int?
         let adultsHandBags: [Int]?

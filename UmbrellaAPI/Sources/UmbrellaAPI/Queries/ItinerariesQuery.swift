@@ -12,6 +12,6 @@ struct ItinerariesQuery: QueryObject, QueryStringConvertible {
 
 extension ItinerariesQuery {
     struct Body: QueryStringConvertible {
-        
+        let onItineraryOneWay: OnItineraryOneWayQuery
     }
 }

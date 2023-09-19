@@ -21,4 +21,8 @@ final class PropertyWrapperTests: XCTestCase {
             XCTAssertEqual((error as? AppError)?.message, expectedMessge)
         }
     }
+    
+    func testDateTrasformer_shouldParse_whenUnixTimePresent() {
+        
+    }
 }

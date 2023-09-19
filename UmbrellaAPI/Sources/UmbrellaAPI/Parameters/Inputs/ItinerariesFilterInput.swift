@@ -23,10 +23,10 @@ public struct ItinerariesFilterInput {
         case etraveli = "ETRAVELI"
         
     }
-    
-    enum TransportType: String, ParametersStringConvertible {
-        case bus = "BUS"
-        case flight = "FLIGHT"
-        case train = "TRAIN"
-    }
+}
+
+public enum TransportType: String, Decodable, ParametersStringConvertible {
+    case bus = "BUS"
+    case flight = "FLIGHT"
+    case train = "TRAIN"
 }

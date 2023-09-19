@@ -11,6 +11,23 @@ struct OnItineraryOneWayQuery: QueryObject, QueryStringConvertible {
 
 extension OnItineraryOneWayQuery {
     struct Body: QueryStringConvertible {
+        let id: String?
+        let duration: String?
+        let type: String?
+        let source: SectorQuery
+    }
+}
+
+struct SectorQuery: QueryObject, QueryStringConvertible {
+    typealias Parameters = EmptyParameters
+    
+    var name: String { "sector" }
+    let parameters: EmptyParameters? = nil
+    let body: Body
+}
+
+extension SectorQuery {
+    struct Body: QueryStringConvertible {
         
     }
 }
