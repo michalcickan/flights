@@ -1,6 +1,6 @@
 import Foundation
 
-public struct PlacesQueryParameters: ParametersStringConvertible {
+public struct PlacesQueryParameters: ObjectStringConvertible {
     let search: Search?
     let filter: Filter?
     let options: Options?
@@ -18,22 +18,22 @@ public struct PlacesQueryParameters: ParametersStringConvertible {
 }
 
 extension PlacesQueryParameters {
-    public struct Search: ParametersStringConvertible {
+    public struct Search: ObjectStringConvertible {
         let term: String?
     }
 
-    public struct Filter: ParametersStringConvertible {
+    public struct Filter: ObjectStringConvertible {
         let onlyTypes: [PlaceType]
         let groupByCity: Bool?
     }
 
-    public enum PlaceType: String, ParametersStringConvertible {
+    public enum PlaceType: String, SimpleValueStringConvertible {
         case airport = "AIRPORT"
         case city = "CITY"
     }
 
-    public struct Options: ParametersStringConvertible {
-        enum SortBy: String {
+    public struct Options: ObjectStringConvertible {
+        enum SortBy: String, SimpleValueStringConvertible {
             case rank = "RANK"
         }
         

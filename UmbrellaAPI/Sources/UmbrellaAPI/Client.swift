@@ -1,28 +1,26 @@
 import Foundation
 
-
 public actor Client {
     private let baseURL: URL
+    private let dataProvider: DataProvider
     
-    public init(baseURL: String) throws {
+    public init(baseURL: String,
+                dataProvider: DataProvider = URLSession.shared) throws {
         guard let baseURL = URL(string: baseURL) else {
             throw NSError(domain: "Invalid url", code: 0)
         }
         self.baseURL = baseURL
+        self.dataProvider = dataProvider
     }
 }
 
 extension Client {
-    func fetch(query: RootQuery, queryName: String) async throws -> RootResponse {
+    public func fetch<T: Query>(query: T) async throws -> T.Model {
         var urlRequest = self.urlRequest
-        urlRequest.httpBody = try JSONSerialization.data(
-            withJSONObject: [
-                "query": "query \(queryName) { \(query.stringValue) }"
-            ]
+        urlRequest.httpBody = try JSONEncoder().encode(query.queryModel)
+        return try query.extractModel(
+            from: try await dataProvider.rootReponse(for: urlRequest)
         )
-        let response = try await URLSession.shared.data(for: urlRequest)
-        let apiResponse = try JSONDecoder().decode(APIResponse.self, from: response.0)
-        return apiResponse.data
     }
 }
 

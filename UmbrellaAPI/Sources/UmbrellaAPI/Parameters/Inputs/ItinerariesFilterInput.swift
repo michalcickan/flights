@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ItinerariesFilterInput {
+public struct ItinerariesFilterInput: ObjectStringConvertible {
     let allowChangeInboundSource: Bool?
     let allowChangeInboundDestination: Bool?
     let allowDifferentStationConnection: Bool?
@@ -10,7 +10,7 @@ public struct ItinerariesFilterInput {
     let showNoCheckedBags: Bool?
     let transportTypes: [TransportType]?
     
-    enum ItineraryContentProvider: String, ParametersStringConvertible {
+    enum ItineraryContentProvider: String, SimpleValueStringConvertible {
         case amadeus = "AMADEUS"
         case aviasales = "AVIASALES"
         case busbud = "BUSBUD"
@@ -25,7 +25,7 @@ public struct ItinerariesFilterInput {
     }
 }
 
-public enum TransportType: String, Decodable, ParametersStringConvertible {
+public enum TransportType: String, Decodable, SimpleValueStringConvertible {
     case bus = "BUS"
     case flight = "FLIGHT"
     case train = "TRAIN"

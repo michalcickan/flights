@@ -23,6 +23,27 @@ final class PropertyWrapperTests: XCTestCase {
     }
     
     func testDateTrasformer_shouldParse_whenUnixTimePresent() {
-        
+        let currentDate = Date()
+        let stringDate = testDateFormatter.string(from: currentDate)
+        let json = """
+            {
+                "date": "\(stringDate)"
+            }
+            """
+        let model = try! JSONDecoder().decode(
+            MockDateTransformer.self,
+            from: json.data(using: .utf8)!
+        )
+        // Avoid comparing Date, since timestamp is not equal due to converting from string
+        XCTAssertEqual(
+            testDateFormatter.string(from: model.date ?? Date()),
+            stringDate
+        )
     }
+}
+
+
+struct MockDateTransformer: Codable {
+    @DateTransformer
+    var date: Date?
 }

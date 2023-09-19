@@ -1,7 +1,7 @@
 import Foundation
 
-public struct ItinerariesOptionsInput: ParametersStringConvertible {
-    enum SortBy: String {
+public struct ItinerariesOptionsInput: ObjectStringConvertible {
+    enum SortBy: String, SimpleValueStringConvertible {
         case quality = "QUALITY"
     }
     

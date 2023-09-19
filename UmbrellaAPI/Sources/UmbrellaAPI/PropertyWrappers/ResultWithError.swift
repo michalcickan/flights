@@ -9,12 +9,11 @@ struct ResultWithError<T: Decodable>: Decodable {
     }
     
     init(from decoder: Decoder) throws {
-        guard let source = try? T(from: decoder) else {
-            let containter = try decoder.container(keyedBy: CodingKeys.self)
-            let error = try containter.decode(AppError.self, forKey: .error)
+        let containter = try decoder.container(keyedBy: CodingKeys.self)
+        if let error = try? containter.decode(AppError.self, forKey: .error) {
             throw error
         }
-        self.wrappedValue = source
+        self.wrappedValue = try T(from: decoder)
     }
     
     enum CodingKeys: String, CodingKey {

@@ -14,6 +14,10 @@ public struct DateTransformer: Codable {
         self.wrappedValue = dateFormatter.date(from: date)
     }
     
+    init(date: Date?) {
+        self.wrappedValue = date
+    }
+    
     public init(from decoder: Decoder) throws {
         let source = try String(from: decoder)
         wrappedValue = dateFormatter.date(from: source)
@@ -26,5 +30,14 @@ public struct DateTransformer: Codable {
             return
         }
         try container.encode(dateFormatter.string(from: date))
+    }
+}
+
+extension DateTransformer: SimpleValueStringConvertible {
+    var stringValue: String {
+        guard let wrappedValue else {
+            return ""
+        }
+        return "\"\(dateFormatter.string(from: wrappedValue))\""
     }
 }

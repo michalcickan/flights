@@ -1,5 +1,5 @@
 import Foundation
 
-struct EmptyParameters: ParametersStringConvertible {
+struct EmptyParameters: ObjectStringConvertible {
     var stringValue: String { "" }
 }
