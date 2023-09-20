@@ -14,6 +14,20 @@
 		951A3F3C2AB8547B00D491BA /* kiwi_taskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3F3B2AB8547B00D491BA /* kiwi_taskTests.swift */; };
 		951A3F462AB8547B00D491BA /* kiwi_taskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3F452AB8547B00D491BA /* kiwi_taskUITests.swift */; };
 		951A3F482AB8547B00D491BA /* kiwi_taskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A3F472AB8547B00D491BA /* kiwi_taskUITestsLaunchTests.swift */; };
+		951C0E602ABAD81C009E0D6D /* Orbit in Frameworks */ = {isa = PBXBuildFile; productRef = 951C0E5F2ABAD81C009E0D6D /* Orbit */; };
+		951C0E7D2ABB3D15009E0D6D /* FlightListViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951C0E782ABB3D15009E0D6D /* FlightListViewModelType.swift */; };
+		951C0E7E2ABB3D15009E0D6D /* FlightListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951C0E792ABB3D15009E0D6D /* FlightListView.swift */; };
+		951C0E7F2ABB3D15009E0D6D /* FlightListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951C0E7A2ABB3D15009E0D6D /* FlightListViewModel.swift */; };
+		951C0E802ABB3D15009E0D6D /* FlightListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951C0E7B2ABB3D15009E0D6D /* FlightListService.swift */; };
+		951C0E832ABB3F58009E0D6D /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951C0E822ABB3F58009E0D6D /* DataState.swift */; };
+		951C0E862ABB40D3009E0D6D /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951C0E852ABB40D3009E0D6D /* CardViewModel.swift */; };
+		951C0E8E2ABB5269009E0D6D /* FilterOptionsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951C0E892ABB5269009E0D6D /* FilterOptionsViewModelType.swift */; };
+		951C0E8F2ABB5269009E0D6D /* FilterOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951C0E8A2ABB5269009E0D6D /* FilterOptionsView.swift */; };
+		951C0E902ABB5269009E0D6D /* FilterOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951C0E8B2ABB5269009E0D6D /* FilterOptionsViewModel.swift */; };
+		951C0E912ABB5269009E0D6D /* FilterOptionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951C0E8C2ABB5269009E0D6D /* FilterOptionsService.swift */; };
+		9590556D2ABB6BC900079D75 /* RoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959055692ABB6BC900079D75 /* RoutingView.swift */; };
+		9590556F2ABB6BC900079D75 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590556B2ABB6BC900079D75 /* Router.swift */; };
+		959055702ABB6BC900079D75 /* SceneRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590556C2ABB6BC900079D75 /* SceneRoute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +58,20 @@
 		951A3F412AB8547B00D491BA /* kiwi_taskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kiwi_taskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		951A3F452AB8547B00D491BA /* kiwi_taskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kiwi_taskUITests.swift; sourceTree = "<group>"; };
 		951A3F472AB8547B00D491BA /* kiwi_taskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kiwi_taskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		951C0E5D2ABAD74E009E0D6D /* UmbrellaAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UmbrellaAPI; path = ../UmbrellaAPI; sourceTree = "<group>"; };
+		951C0E782ABB3D15009E0D6D /* FlightListViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModelType.swift; sourceTree = "<group>"; };
+		951C0E792ABB3D15009E0D6D /* FlightListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListView.swift; sourceTree = "<group>"; };
+		951C0E7A2ABB3D15009E0D6D /* FlightListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModel.swift; sourceTree = "<group>"; };
+		951C0E7B2ABB3D15009E0D6D /* FlightListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListService.swift; sourceTree = "<group>"; };
+		951C0E822ABB3F58009E0D6D /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
+		951C0E852ABB40D3009E0D6D /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		951C0E892ABB5269009E0D6D /* FilterOptionsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsViewModelType.swift; sourceTree = "<group>"; };
+		951C0E8A2ABB5269009E0D6D /* FilterOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsView.swift; sourceTree = "<group>"; };
+		951C0E8B2ABB5269009E0D6D /* FilterOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsViewModel.swift; sourceTree = "<group>"; };
+		951C0E8C2ABB5269009E0D6D /* FilterOptionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsService.swift; sourceTree = "<group>"; };
+		959055692ABB6BC900079D75 /* RoutingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingView.swift; sourceTree = "<group>"; };
+		9590556B2ABB6BC900079D75 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		9590556C2ABB6BC900079D75 /* SceneRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneRoute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				951C0E602ABAD81C009E0D6D /* Orbit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +103,7 @@
 		951A3F1E2AB8547A00D491BA = {
 			isa = PBXGroup;
 			children = (
+				951C0E5C2ABAD74E009E0D6D /* Packages */,
 				951A3F292AB8547A00D491BA /* kiwi_task */,
 				951A3F3A2AB8547B00D491BA /* kiwi_taskTests */,
 				951A3F442AB8547B00D491BA /* kiwi_taskUITests */,
@@ -94,6 +124,10 @@
 		951A3F292AB8547A00D491BA /* kiwi_task */ = {
 			isa = PBXGroup;
 			children = (
+				959055682ABB6BC900079D75 /* Router */,
+				951C0E842ABB40BE009E0D6D /* ViewModels */,
+				951C0E812ABB3F0B009E0D6D /* Utils */,
+				951C0E612ABAD839009E0D6D /* Scenes */,
 				951A3F2A2AB8547A00D491BA /* kiwi_taskApp.swift */,
 				951A3F2C2AB8547A00D491BA /* ContentView.swift */,
 				951A3F2E2AB8547B00D491BA /* Assets.xcassets */,
@@ -127,6 +161,71 @@
 			path = kiwi_taskUITests;
 			sourceTree = "<group>";
 		};
+		951C0E5C2ABAD74E009E0D6D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				951C0E5D2ABAD74E009E0D6D /* UmbrellaAPI */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		951C0E612ABAD839009E0D6D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				951C0E872ABB5246009E0D6D /* FilterOptions */,
+				951C0E762ABB3D09009E0D6D /* FlightList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		951C0E762ABB3D09009E0D6D /* FlightList */ = {
+			isa = PBXGroup;
+			children = (
+				951C0E782ABB3D15009E0D6D /* FlightListViewModelType.swift */,
+				951C0E792ABB3D15009E0D6D /* FlightListView.swift */,
+				951C0E7A2ABB3D15009E0D6D /* FlightListViewModel.swift */,
+				951C0E7B2ABB3D15009E0D6D /* FlightListService.swift */,
+			);
+			path = FlightList;
+			sourceTree = "<group>";
+		};
+		951C0E812ABB3F0B009E0D6D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				951C0E822ABB3F58009E0D6D /* DataState.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		951C0E842ABB40BE009E0D6D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				951C0E852ABB40D3009E0D6D /* CardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		951C0E872ABB5246009E0D6D /* FilterOptions */ = {
+			isa = PBXGroup;
+			children = (
+				951C0E892ABB5269009E0D6D /* FilterOptionsViewModelType.swift */,
+				951C0E8A2ABB5269009E0D6D /* FilterOptionsView.swift */,
+				951C0E8B2ABB5269009E0D6D /* FilterOptionsViewModel.swift */,
+				951C0E8C2ABB5269009E0D6D /* FilterOptionsService.swift */,
+			);
+			path = FilterOptions;
+			sourceTree = "<group>";
+		};
+		959055682ABB6BC900079D75 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				959055692ABB6BC900079D75 /* RoutingView.swift */,
+				9590556B2ABB6BC900079D75 /* Router.swift */,
+				9590556C2ABB6BC900079D75 /* SceneRoute.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +242,9 @@
 			dependencies = (
 			);
 			name = kiwi_task;
+			packageProductDependencies = (
+				951C0E5F2ABAD81C009E0D6D /* Orbit */,
+			);
 			productName = kiwi_task;
 			productReference = 951A3F272AB8547A00D491BA /* kiwi_task.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +317,9 @@
 				Base,
 			);
 			mainGroup = 951A3F1E2AB8547A00D491BA;
+			packageReferences = (
+				951C0E5E2ABAD81C009E0D6D /* XCRemoteSwiftPackageReference "orbit-swiftui" */,
+			);
 			productRefGroup = 951A3F282AB8547A00D491BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,7 +362,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				951C0E7F2ABB3D15009E0D6D /* FlightListViewModel.swift in Sources */,
+				951C0E832ABB3F58009E0D6D /* DataState.swift in Sources */,
+				951C0E902ABB5269009E0D6D /* FilterOptionsViewModel.swift in Sources */,
+				951C0E802ABB3D15009E0D6D /* FlightListService.swift in Sources */,
 				951A3F2D2AB8547A00D491BA /* ContentView.swift in Sources */,
+				951C0E7E2ABB3D15009E0D6D /* FlightListView.swift in Sources */,
+				951C0E862ABB40D3009E0D6D /* CardViewModel.swift in Sources */,
+				951C0E8E2ABB5269009E0D6D /* FilterOptionsViewModelType.swift in Sources */,
+				9590556F2ABB6BC900079D75 /* Router.swift in Sources */,
+				951C0E8F2ABB5269009E0D6D /* FilterOptionsView.swift in Sources */,
+				951C0E7D2ABB3D15009E0D6D /* FlightListViewModelType.swift in Sources */,
+				9590556D2ABB6BC900079D75 /* RoutingView.swift in Sources */,
+				951C0E912ABB5269009E0D6D /* FilterOptionsService.swift in Sources */,
+				959055702ABB6BC900079D75 /* SceneRoute.swift in Sources */,
 				951A3F2B2AB8547A00D491BA /* kiwi_taskApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,6 +701,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		951C0E5E2ABAD81C009E0D6D /* XCRemoteSwiftPackageReference "orbit-swiftui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kiwicom/orbit-swiftui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		951C0E5F2ABAD81C009E0D6D /* Orbit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 951C0E5E2ABAD81C009E0D6D /* XCRemoteSwiftPackageReference "orbit-swiftui" */;
+			productName = Orbit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 951A3F1F2AB8547A00D491BA /* Project object */;
 }

@@ -1,9 +1,9 @@
 import Foundation
 
 public struct FlightsQuery {
-    private let parameters: OneWayFlightSearchParameters?
+    private let parameters: OnewayFlightSearchParameters?
     
-    public init(parameters: OneWayFlightSearchParameters?) {
+    public init(parameters: OnewayFlightSearchParameters?) {
         self.parameters = parameters
     }
 }

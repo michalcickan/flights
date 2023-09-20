@@ -6,4 +6,3 @@ public enum CabinClassType: String, Decodable, SimpleValueStringConvertible {
     case business = "BUSINESS"
     case firstClass = "FIRST_CLASS"
 }
-

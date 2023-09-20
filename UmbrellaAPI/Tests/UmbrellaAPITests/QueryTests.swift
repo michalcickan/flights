@@ -104,8 +104,8 @@ final class QueryTests: XCTestCase {
     }
 }
 
-private func parameters(startDate: Date, endDate: Date) -> OneWayFlightSearchParameters {
-    OneWayFlightSearchParameters(
+private func parameters(startDate: Date, endDate: Date) -> OnewayFlightSearchParameters {
+    OnewayFlightSearchParameters(
         filter: .init(
             allowChangeInboundSource: false,
             allowChangeInboundDestination: false,

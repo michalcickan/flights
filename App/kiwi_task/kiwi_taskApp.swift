@@ -11,7 +11,10 @@ import SwiftUI
 struct kiwi_taskApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FlightListView(
+                viewModel: FlightListViewModel()
+            )
+            .environmentObject(Router(isPresented: .constant(.flightList)))
         }
     }
 }
