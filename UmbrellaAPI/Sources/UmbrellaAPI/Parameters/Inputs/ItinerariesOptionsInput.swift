@@ -1,8 +1,17 @@
 import Foundation
 
 public struct ItinerariesOptionsInput: ObjectStringConvertible {
-    public enum SortBy: String, SimpleValueStringConvertible {
+    public enum SortBy: String, SimpleValueStringConvertible, CaseIterable {
+        case date = "DATE"
+        case duration = "DURATION"
+        case popularity = "POPULARITY"
+        case price = "PRICE"
+        case recommended = "RECOMMENDED"
         case quality = "QUALITY"
+        case sourceTakeoff = "SOURCE_TAKEOFF"
+        case sourceLanding = "SOURCE_LANDING"
+        case destinationTakeoff = "DESTINATION_TAKEOFF"
+        case destinationLanding = "DESTINATION_LANDING"
     }
     
     let currency: String?

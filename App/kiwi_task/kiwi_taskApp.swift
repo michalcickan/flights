@@ -3,14 +3,17 @@ import UmbrellaAPI
 
 @main
 struct kiwi_taskApp: App {
-    @StateObject private var persistentStore: PersistenStore = CoreDataStore()
+    @StateObject private var persistentStore: PersistenStorage = CoreDataStore()
     @StateObject private var apiClient = try! Client(baseURL: Config.graphqlBaseUrl)
     
     var body: some Scene {
         WindowGroup {
             FlightListView(
                 viewModel: FlightListViewModel(
-                service: FlightListService(client: apiClient)
+                    service: FlightListService(
+                        client: apiClient
+                    ),
+                    persistStore: persistentStore
                 )
             )
             .environmentObject(Router(isPresented: .constant(.flightList)))

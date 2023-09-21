@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 import UmbrellaAPI
 
-final class CoreDataStore: PersistenStore {
+final class CoreDataStore: PersistenStorage {
     let container = NSPersistentContainer(name: "Flights")
     
     override var filter: PersistentFilter? {
@@ -98,7 +98,8 @@ fileprivate extension ManagedPlace {
             imageUrl: imageUrl,
             id: id!,
             lat: lat,
-            lng: lng
+            lng: lng,
+            name: name
         )
     }
 }
@@ -110,6 +111,7 @@ fileprivate extension PersistentPlace {
         managedPlace.id = id
         managedPlace.lat = lat
         managedPlace.lng = lng
+        managedPlace.name = name
     }
 }
 

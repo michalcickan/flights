@@ -13,7 +13,7 @@ final class FlightListViewModel: ObservableObject, FlightListOutput {
     
     private var cancellables: Set<AnyCancellable> = []
     
-    init(service: FlightListServiceType) {
+    init(service: FlightListServiceType, persistStore: PersistenStorage) {
         input.onAppear
             .sink(receiveValue: { [unowned self] in
                 _showRoute.send(.filter)

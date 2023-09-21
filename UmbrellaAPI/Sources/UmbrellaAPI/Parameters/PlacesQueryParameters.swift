@@ -20,9 +20,11 @@ public struct PlacesQueryParameters: ObjectStringConvertible {
 extension PlacesQueryParameters {
     public struct Search: ObjectStringConvertible {
         let term: String?
+        let ids: [String]?
         
-        public init(term: String?) {
+        public init(term: String? = nil, ids: [String]? = nil) {
             self.term = term
+            self.ids = ids
         }
     }
 

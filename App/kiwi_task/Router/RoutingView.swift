@@ -4,7 +4,7 @@ import UmbrellaAPI
 struct RoutingView<Content: View>: View {
     @StateObject var router: Router
     private let content: Content
-    @EnvironmentObject private var persistenStore: PersistenStore
+    @EnvironmentObject private var persistenStore: PersistenStorage
     @EnvironmentObject private var apiClient: Client
     
     init(router: Router, @ViewBuilder content: @escaping () -> Content) {

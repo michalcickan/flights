@@ -20,6 +20,7 @@ extension ManagedPlace {
     @NSManaged public var id: String?
     @NSManaged public var lat: Double
     @NSManaged public var lng: Double
+    @NSManaged public var name: String
 
 }
 

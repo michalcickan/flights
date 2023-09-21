@@ -10,11 +10,14 @@ enum SceneRoute: Equatable, Hashable {
 
 extension SceneRoute {
     @ViewBuilder
-    func view(_ persistentStore: PersistenStore, _ apiClient: Client) -> some View {
+    func view(_ persistentStore: PersistenStorage, _ apiClient: Client) -> some View {
         switch self {
         case .filter:
             FilterOptionsView(
-                viewModel: FilterOptionsViewModel()
+                viewModel: FilterOptionsViewModel(
+                    service: FilterOptionsService(client: apiClient),
+                    persistenStorage: persistentStore
+                )
             )
         default:
             EmptyView()

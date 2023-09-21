@@ -38,6 +38,13 @@
 		95FB46E22ABC321A00B0115A /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46E12ABC321A00B0115A /* PersistentStore.swift */; };
 		95FB46E42ABC395300B0115A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46E32ABC395300B0115A /* Config.swift */; };
 		95FB46E72ABC3D6800B0115A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46E62ABC3D6800B0115A /* APIClient.swift */; };
+		95FB46E92ABC5E0500B0115A /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46E82ABC5E0500B0115A /* ListSection.swift */; };
+		95FB46EB2ABC5F9800B0115A /* PickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46EA2ABC5F9800B0115A /* PickerViewModel.swift */; };
+		95FB46ED2ABC66E400B0115A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46EC2ABC66E400B0115A /* LocationManager.swift */; };
+		95FB46F02ABC82B400B0115A /* PersistentFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46EF2ABC82B400B0115A /* PersistentFilter.swift */; };
+		95FB46F22ABC82C800B0115A /* PersistentPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46F12ABC82C800B0115A /* PersistentPlace.swift */; };
+		95FB46F42ABC9EEB00B0115A /* TileWithTagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46F32ABC9EEB00B0115A /* TileWithTagsViewModel.swift */; };
+		95FB46F62ABCA85D00B0115A /* StepperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46F52ABCA85D00B0115A /* StepperViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +98,13 @@
 		95FB46E12ABC321A00B0115A /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 		95FB46E32ABC395300B0115A /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		95FB46E62ABC3D6800B0115A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		95FB46E82ABC5E0500B0115A /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
+		95FB46EA2ABC5F9800B0115A /* PickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewModel.swift; sourceTree = "<group>"; };
+		95FB46EC2ABC66E400B0115A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		95FB46EF2ABC82B400B0115A /* PersistentFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentFilter.swift; sourceTree = "<group>"; };
+		95FB46F12ABC82C800B0115A /* PersistentPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentPlace.swift; sourceTree = "<group>"; };
+		95FB46F32ABC9EEB00B0115A /* TileWithTagsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileWithTagsViewModel.swift; sourceTree = "<group>"; };
+		95FB46F52ABCA85D00B0115A /* StepperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				951C0E822ABB3F58009E0D6D /* DataState.swift */,
+				95FB46E82ABC5E0500B0115A /* ListSection.swift */,
+				95FB46EC2ABC66E400B0115A /* LocationManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -226,6 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				951C0E852ABB40D3009E0D6D /* CardViewModel.swift */,
+				95FB46EA2ABC5F9800B0115A /* PickerViewModel.swift */,
+				95FB46F32ABC9EEB00B0115A /* TileWithTagsViewModel.swift */,
+				95FB46F52ABCA85D00B0115A /* StepperViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -254,7 +273,8 @@
 		95FB469E2ABC166C00B0115A /* PersistentStore */ = {
 			isa = PBXGroup;
 			children = (
-				95FB46D02ABC2FA000B0115A /* GeneratedModels */,
+				95FB46EE2ABC828A00B0115A /* Models */,
+				95FB46D02ABC2FA000B0115A /* GeneratedCoreDataModels */,
 				95FB469F2ABC168100B0115A /* CoreDataManager.swift */,
 				95FB46E12ABC321A00B0115A /* PersistentStore.swift */,
 			);
@@ -268,7 +288,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		95FB46D02ABC2FA000B0115A /* GeneratedModels */ = {
+		95FB46D02ABC2FA000B0115A /* GeneratedCoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
 				95FB46D92ABC304E00B0115A /* Place+CoreDataClass.swift */,
@@ -276,7 +296,7 @@
 				95FB46DB2ABC304E00B0115A /* Filter+CoreDataClass.swift */,
 				95FB46DC2ABC304E00B0115A /* Filter+CoreDataProperties.swift */,
 			);
-			path = GeneratedModels;
+			path = GeneratedCoreDataModels;
 			sourceTree = "<group>";
 		};
 		95FB46E52ABC3D5200B0115A /* API */ = {
@@ -285,6 +305,15 @@
 				95FB46E62ABC3D6800B0115A /* APIClient.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		95FB46EE2ABC828A00B0115A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				95FB46EF2ABC82B400B0115A /* PersistentFilter.swift */,
+				95FB46F12ABC82C800B0115A /* PersistentPlace.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95FB46F02ABC82B400B0115A /* PersistentFilter.swift in Sources */,
 				951C0E7F2ABB3D15009E0D6D /* FlightListViewModel.swift in Sources */,
 				951C0E832ABB3F58009E0D6D /* DataState.swift in Sources */,
 				951C0E902ABB5269009E0D6D /* FilterOptionsViewModel.swift in Sources */,
@@ -439,15 +469,21 @@
 				951C0E8E2ABB5269009E0D6D /* FilterOptionsViewModelType.swift in Sources */,
 				9590556F2ABB6BC900079D75 /* Router.swift in Sources */,
 				951C0E8F2ABB5269009E0D6D /* FilterOptionsView.swift in Sources */,
+				95FB46F22ABC82C800B0115A /* PersistentPlace.swift in Sources */,
 				95FB46DD2ABC304E00B0115A /* Place+CoreDataClass.swift in Sources */,
 				95FB46A02ABC168100B0115A /* CoreDataManager.swift in Sources */,
 				951C0E7D2ABB3D15009E0D6D /* FlightListViewModelType.swift in Sources */,
+				95FB46EB2ABC5F9800B0115A /* PickerViewModel.swift in Sources */,
+				95FB46F42ABC9EEB00B0115A /* TileWithTagsViewModel.swift in Sources */,
 				95FB46DF2ABC304E00B0115A /* Filter+CoreDataClass.swift in Sources */,
 				95FB46E42ABC395300B0115A /* Config.swift in Sources */,
 				9590556D2ABB6BC900079D75 /* RoutingView.swift in Sources */,
 				951C0E912ABB5269009E0D6D /* FilterOptionsService.swift in Sources */,
+				95FB46F62ABCA85D00B0115A /* StepperViewModel.swift in Sources */,
 				959055702ABB6BC900079D75 /* SceneRoute.swift in Sources */,
 				951A3F2B2AB8547A00D491BA /* kiwi_taskApp.swift in Sources */,
+				95FB46E92ABC5E0500B0115A /* ListSection.swift in Sources */,
+				95FB46ED2ABC66E400B0115A /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +645,7 @@
 				DEVELOPMENT_TEAM = XW2U839GPC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get you more precise results, we need your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -638,6 +675,7 @@
 				DEVELOPMENT_TEAM = XW2U839GPC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get you more precise results, we need your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

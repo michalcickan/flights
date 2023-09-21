@@ -5,7 +5,7 @@ import Orbit
 struct FlightListView<VM: FlightListViewModelType>: View {
     @StateObject private var viewModel: VM
     @EnvironmentObject private var router: Router
-    @EnvironmentObject private var persistenStore: PersistenStore
+    @EnvironmentObject private var persistenStore: PersistenStorage
     
     init(viewModel: VM) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -20,7 +20,7 @@ struct FlightListView<VM: FlightListViewModelType>: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
-                
+                print("test")
             }
             .onReceive(viewModel.output.showRoute) { route in
                 router.present(route, with: route.routeType)
@@ -35,7 +35,8 @@ struct FlightListView_Previews: PreviewProvider {
             viewModel: FlightListViewModel(
                 service: FlightListService(
                     client: PreviewAPIClient()
-                )
+                ),
+                persistStore: PersistenStorage()
             )
         )
     }
