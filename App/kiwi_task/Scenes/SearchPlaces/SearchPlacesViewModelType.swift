@@ -16,6 +16,7 @@ protocol SearchPlacesInput: AnyObject {
 protocol  SearchPlacesOutput: ObservableObject {
     var items: [SearchItem] { get }
     var close: AnyPublisher<Void, Never> { get }
+    var showError: AnyPublisher<String, Never> { get }
 }
 
 protocol  SearchPlacesViewModelType: ObservableObject {

@@ -51,7 +51,9 @@ class SearchPlacesViewModel: SearchPlacesInput {
         
         confirm
             .sink { [unowned self] in
-                done(self.selectedEdges.value)
+                if !self.selectedEdges.value.isEmpty {
+                    done(self.selectedEdges.value)
+                }
                 self._close.send(())
             }
             .store(in: &cancellables)

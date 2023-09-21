@@ -5,6 +5,7 @@ import Orbit
 struct SearchPlacesView<VM: SearchPlacesViewModelType>: View {
     @StateObject private var viewModel: VM
     @EnvironmentObject private var router: Router
+    private let toastLiveQueue = ToastQueue()
     
     init(viewModel: VM) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -26,7 +27,7 @@ struct SearchPlacesView<VM: SearchPlacesViewModelType>: View {
                         EmptyState(text, illustration: .noResults)
                     }
                 }
-                Button("Confirm", type: .primary) {
+                Orbit.Button("Confirm", type: .primary) {
                     viewModel.input.confirm.send(())
                 }
                 .padding()
@@ -36,6 +37,10 @@ struct SearchPlacesView<VM: SearchPlacesViewModelType>: View {
             .onReceive(viewModel.output.close) {
                 router.dismiss()
             }
+            .onReceive(viewModel.output.showError) { error in
+                toastLiveQueue.add(error)
+            }
+            .overlay(Toast(toastQueue: toastLiveQueue), alignment: .bottom)
         }
     }
 }
