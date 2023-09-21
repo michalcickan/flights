@@ -39,7 +39,7 @@ extension Router {
         state.navigationPath = path
     }
     
-    func present(_ sceneRoute: SceneRoute, with route: RouteType) {
+    func show(_ sceneRoute: SceneRoute, as route: RouteType) {
         switch route {
         case .navigation:
             state.navigationPath.append(sceneRoute)

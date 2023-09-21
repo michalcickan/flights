@@ -23,7 +23,7 @@ struct FlightListView<VM: FlightListViewModelType>: View {
                 print("test")
             }
             .onReceive(viewModel.output.showRoute) { route in
-                router.present(route, with: route.routeType)
+                router.show(route, as: route.routeType)
             }
         }
     }

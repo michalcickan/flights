@@ -43,8 +43,12 @@
 		95FB46ED2ABC66E400B0115A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46EC2ABC66E400B0115A /* LocationManager.swift */; };
 		95FB46F02ABC82B400B0115A /* PersistentFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46EF2ABC82B400B0115A /* PersistentFilter.swift */; };
 		95FB46F22ABC82C800B0115A /* PersistentPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46F12ABC82C800B0115A /* PersistentPlace.swift */; };
-		95FB46F42ABC9EEB00B0115A /* TileWithTagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46F32ABC9EEB00B0115A /* TileWithTagsViewModel.swift */; };
+		95FB46F42ABC9EEB00B0115A /* TileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46F32ABC9EEB00B0115A /* TileViewModel.swift */; };
 		95FB46F62ABCA85D00B0115A /* StepperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46F52ABCA85D00B0115A /* StepperViewModel.swift */; };
+		95FB46FE2ABCE30F00B0115A /* SearchPlacesViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46F92ABCE30F00B0115A /* SearchPlacesViewModelType.swift */; };
+		95FB46FF2ABCE30F00B0115A /* SearchPlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46FA2ABCE30F00B0115A /* SearchPlacesView.swift */; };
+		95FB47002ABCE30F00B0115A /* SearchPlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46FB2ABCE30F00B0115A /* SearchPlacesViewModel.swift */; };
+		95FB47012ABCE30F00B0115A /* SearchPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46FC2ABCE30F00B0115A /* SearchPlacesService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,8 +107,12 @@
 		95FB46EC2ABC66E400B0115A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		95FB46EF2ABC82B400B0115A /* PersistentFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentFilter.swift; sourceTree = "<group>"; };
 		95FB46F12ABC82C800B0115A /* PersistentPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentPlace.swift; sourceTree = "<group>"; };
-		95FB46F32ABC9EEB00B0115A /* TileWithTagsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileWithTagsViewModel.swift; sourceTree = "<group>"; };
+		95FB46F32ABC9EEB00B0115A /* TileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileViewModel.swift; sourceTree = "<group>"; };
 		95FB46F52ABCA85D00B0115A /* StepperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperViewModel.swift; sourceTree = "<group>"; };
+		95FB46F92ABCE30F00B0115A /* SearchPlacesViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesViewModelType.swift; sourceTree = "<group>"; };
+		95FB46FA2ABCE30F00B0115A /* SearchPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesView.swift; sourceTree = "<group>"; };
+		95FB46FB2ABCE30F00B0115A /* SearchPlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesViewModel.swift; sourceTree = "<group>"; };
+		95FB46FC2ABCE30F00B0115A /* SearchPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +219,7 @@
 		951C0E612ABAD839009E0D6D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				95FB46F72ABCE2F300B0115A /* SearchPlaces */,
 				951C0E872ABB5246009E0D6D /* FilterOptions */,
 				951C0E762ABB3D09009E0D6D /* FlightList */,
 			);
@@ -243,7 +252,7 @@
 			children = (
 				951C0E852ABB40D3009E0D6D /* CardViewModel.swift */,
 				95FB46EA2ABC5F9800B0115A /* PickerViewModel.swift */,
-				95FB46F32ABC9EEB00B0115A /* TileWithTagsViewModel.swift */,
+				95FB46F32ABC9EEB00B0115A /* TileViewModel.swift */,
 				95FB46F52ABCA85D00B0115A /* StepperViewModel.swift */,
 			);
 			path = ViewModels;
@@ -314,6 +323,17 @@
 				95FB46F12ABC82C800B0115A /* PersistentPlace.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		95FB46F72ABCE2F300B0115A /* SearchPlaces */ = {
+			isa = PBXGroup;
+			children = (
+				95FB46F92ABCE30F00B0115A /* SearchPlacesViewModelType.swift */,
+				95FB46FA2ABCE30F00B0115A /* SearchPlacesView.swift */,
+				95FB46FB2ABCE30F00B0115A /* SearchPlacesViewModel.swift */,
+				95FB46FC2ABCE30F00B0115A /* SearchPlacesService.swift */,
+			);
+			path = SearchPlaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,26 +475,30 @@
 			files = (
 				95FB46F02ABC82B400B0115A /* PersistentFilter.swift in Sources */,
 				951C0E7F2ABB3D15009E0D6D /* FlightListViewModel.swift in Sources */,
+				95FB47012ABCE30F00B0115A /* SearchPlacesService.swift in Sources */,
 				951C0E832ABB3F58009E0D6D /* DataState.swift in Sources */,
 				951C0E902ABB5269009E0D6D /* FilterOptionsViewModel.swift in Sources */,
 				951C0E802ABB3D15009E0D6D /* FlightListService.swift in Sources */,
 				951A3F2D2AB8547A00D491BA /* ContentView.swift in Sources */,
 				95FB46DE2ABC304E00B0115A /* Place+CoreDataProperties.swift in Sources */,
+				95FB46FF2ABCE30F00B0115A /* SearchPlacesView.swift in Sources */,
 				95FB46A32ABC183800B0115A /* Flights.xcdatamodeld in Sources */,
 				95FB46E02ABC304E00B0115A /* Filter+CoreDataProperties.swift in Sources */,
 				95FB46E22ABC321A00B0115A /* PersistentStore.swift in Sources */,
 				951C0E7E2ABB3D15009E0D6D /* FlightListView.swift in Sources */,
+				95FB47002ABCE30F00B0115A /* SearchPlacesViewModel.swift in Sources */,
 				951C0E862ABB40D3009E0D6D /* CardViewModel.swift in Sources */,
 				95FB46E72ABC3D6800B0115A /* APIClient.swift in Sources */,
 				951C0E8E2ABB5269009E0D6D /* FilterOptionsViewModelType.swift in Sources */,
 				9590556F2ABB6BC900079D75 /* Router.swift in Sources */,
 				951C0E8F2ABB5269009E0D6D /* FilterOptionsView.swift in Sources */,
+				95FB46FE2ABCE30F00B0115A /* SearchPlacesViewModelType.swift in Sources */,
 				95FB46F22ABC82C800B0115A /* PersistentPlace.swift in Sources */,
 				95FB46DD2ABC304E00B0115A /* Place+CoreDataClass.swift in Sources */,
 				95FB46A02ABC168100B0115A /* CoreDataManager.swift in Sources */,
 				951C0E7D2ABB3D15009E0D6D /* FlightListViewModelType.swift in Sources */,
 				95FB46EB2ABC5F9800B0115A /* PickerViewModel.swift in Sources */,
-				95FB46F42ABC9EEB00B0115A /* TileWithTagsViewModel.swift in Sources */,
+				95FB46F42ABC9EEB00B0115A /* TileViewModel.swift in Sources */,
 				95FB46DF2ABC304E00B0115A /* Filter+CoreDataClass.swift in Sources */,
 				95FB46E42ABC395300B0115A /* Config.swift in Sources */,
 				9590556D2ABB6BC900079D75 /* RoutingView.swift in Sources */,

@@ -47,7 +47,7 @@ final class FilterOptionsViewModel: FilterOptionsOutput, FilterOptionsInput {
             .receive(on: RunLoop.main)
             .assign(to: \.filter, on: self)
             .store(in: &cancellables)
-            
+        
         $filter
             .drop(untilOutputFrom: onAppear)
             .receive(on: RunLoop.main)
@@ -60,8 +60,8 @@ final class FilterOptionsViewModel: FilterOptionsOutput, FilterOptionsInput {
                     )
                 ])
             }
-        .assign(to: \.sections, on: self)
-        .store(in: &cancellables)
+            .assign(to: \.sections, on: self)
+            .store(in: &cancellables)
         
         
         Publishers.Merge(
@@ -78,10 +78,10 @@ final class FilterOptionsViewModel: FilterOptionsOutput, FilterOptionsInput {
         $adults
             .dropFirst()
             .map {
-            self.filter.copyWith(numberOfAdults: $0)
-        }
-        .assign(to: \.filter, on: self)
-        .store(in: &cancellables)
+                self.filter.copyWith(numberOfAdults: $0)
+            }
+            .assign(to: \.filter, on: self)
+            .store(in: &cancellables)
     }
 }
 
@@ -113,7 +113,7 @@ private extension FilterOptionsViewModel {
                     search: PlacesQueryParameters.Search(ids: Config.defaultDestinationIds))
                 )
                 fetchedPlaces.append(
-                    contentsOf: destinationPlaces?.persistentPlaces ?? []
+                    contentsOf: destinationPlaces?.edges?.persistentPlaces ?? []
                 )
                 guard let location = try? await locationManager.requestLocation(),
                       let placesBasedOnLocation = await location.fetchLocations(service: service) else {
@@ -122,34 +122,50 @@ private extension FilterOptionsViewModel {
                             search: PlacesQueryParameters.Search(ids: Config.defaultSourceIds)
                         )
                     )
-                    fetchedPlaces.append(contentsOf: defaultSourcePlaces?.persistentPlaces ?? [])
+                    fetchedPlaces.append(contentsOf: defaultSourcePlaces?.edges?.persistentPlaces ?? [])
                     sourceLocations = Config.defaultSourceIds
                     return
                 }
-                fetchedPlaces.append(contentsOf: placesBasedOnLocation.persistentPlaces ?? [])
+                fetchedPlaces.append(contentsOf: placesBasedOnLocation.edges?.persistentPlaces ?? [])
                 sourceLocations = placesBasedOnLocation.edges?.compactMap { $0.node?.id } ?? Config.defaultSourceIds
             }
         }
     }
     
-    func makeSection(with filter: PersistentFilter, and places: [PersistentPlace]) -> ListSection<FilterItem> {
+    func makeSection(with filter: PersistentFilter,
+                     and places: [PersistentPlace]) -> ListSection<FilterItem> {
         ListSection<FilterItem>(
             title: "",
             items: [
                 .listWithTags(
-                    TileWithTagsViewModel(
+                    TileViewModel(
                         title: "Source",
                         tags: filter.sources?.locationNames(with: places) ?? []
-                    ) {
-                        
+                    ) { [weak self] in
+                        guard let self else { return }
+                        self._showRoute.send(.searchPlaces { [weak self] places in
+                            self?.persistentStorage.places = places.persistentPlaces
+                            guard let self = self else { return }
+                            self.filter = self.filter.copyWith(
+                                sources: places.compactMap { $0.node?.id }
+                            )
+                        })
                     },
                     type: .source
                 ),
                 .listWithTags(
-                    TileWithTagsViewModel(
+                    TileViewModel(
                         title: "Destination",
                         tags: filter.destinations?.locationNames(with: places) ?? []
-                    ) {
+                    ) { [weak self] in
+                        guard let self else { return }
+                        self._showRoute.send(.searchPlaces { [weak self] places in
+                            self?.persistentStorage.places = places.persistentPlaces
+                            guard let self = self else { return }
+                            self.filter = self.filter.copyWith(
+                                destinations: places.compactMap { $0.node?.id }
+                            )
+                        })
                         
                     },
                     type: .destination

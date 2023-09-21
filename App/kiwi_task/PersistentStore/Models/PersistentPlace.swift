@@ -9,12 +9,9 @@ struct PersistentPlace {
     let name: String
 }
 
-extension PlaceConnection {
+extension Array where Element == PlaceEdge {
     var persistentPlaces: [PersistentPlace]? {
-        guard let edges else {
-            return nil
-        }
-        return edges.compactMap { edge -> PersistentPlace? in
+        compactMap { edge -> PersistentPlace? in
             guard let node = edge.node else {
                 return nil
             }

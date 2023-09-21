@@ -18,6 +18,7 @@ struct FilterOptionsView<VM: FilterOptionsViewModelType>: View {
                 VStack {
                     ProgressView()
                 }
+                .navigationTitle(viewModel.output.sceneTitle)
             case let .ready(sections):
                 List(sections) { section in
                     Section(section.title) {
@@ -33,39 +34,18 @@ struct FilterOptionsView<VM: FilterOptionsViewModelType>: View {
                                     }
                                 )
                             case let .listWithTags(viewModel, type):
+                                // This is weird. It sometimes catch tap gesture and always only when tap on the top right. Seems to me like a bug of Tile with custom content
                                 Tile(
                                     viewModel.title,
                                     icon: type == .destination ? .airplaneLanding : .airplaneUp,
                                     action: viewModel.onTap,
                                     content: {
-                                        if viewModel.tags.isEmpty {
+                                        if viewModel.tags == nil {
+                                            EmptyView()
+                                        } else if viewModel.tags!.isEmpty {
                                             EmptyState(illustration: .placeholderAirport)
-                                        } else {
-                                            HorizontalScroll(
-                                                isSnapping: true,
-                                                spacing: .xxxSmall,
-                                                itemWidth: .ratio(
-                                                    3,
-                                                    maxWidth: .infinity
-                                                )
-                                            ) {
-                                                
-                                                HStack {
-                                                    ForEach(viewModel.tags, id: \.self) {
-                                                        Badge($0)
-                                                            .lineLimit(1)
-                                                    }
-                                                }
-                                                
-                                            }
-                                            .padding(
-                                                EdgeInsets.init(
-                                                    top: 0,
-                                                    leading: 10,
-                                                    bottom: 10,
-                                                    trailing: 0
-                                                )
-                                            )
+                                        }  else {
+                                            buildTags(tags: viewModel.tags!)
                                         }
                                     }
                                 )
@@ -97,8 +77,6 @@ struct FilterOptionsView<VM: FilterOptionsViewModelType>: View {
                     )
                 }
                 .padding(.horizontal)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("test")
             }
         }
         .sheet(item: $picker) { picker in
@@ -114,10 +92,41 @@ struct FilterOptionsView<VM: FilterOptionsViewModelType>: View {
         .onAppear {
             viewModel.input.onAppear.send(())
         }
+        .onReceive(viewModel.output.showRoute) {
+            router.show($0, as: .sheet)
+        }
     }
 }
 
 private extension FilterOptionsView {
+    @ViewBuilder func buildTags(tags: [String]) -> some View {
+        HorizontalScroll(
+            isSnapping: true,
+            spacing: .xxxSmall,
+            itemWidth: .ratio(
+                3,
+                maxWidth: .infinity
+            )
+        ) {
+            
+            HStack {
+                ForEach(tags, id: \.self) {
+                    Badge($0)
+                        .lineLimit(1)
+                }
+            }
+            
+        }
+        .padding(
+            EdgeInsets.init(
+                top: 0,
+                leading: 10,
+                bottom: 10,
+                trailing: 0
+            )
+        )
+    }
+    
     @ViewBuilder func buildPicker(models: [String]) -> some View {
         ForEach(models, id: \.self) {
             Text($0)

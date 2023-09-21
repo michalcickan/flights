@@ -8,7 +8,7 @@ enum FilterListWithTagsType {
 enum FilterItem: Hashable, Equatable, Identifiable {
     var id: Self { self }
     
-    case listWithTags(_ viewModel: TileWithTagsViewModel, type: FilterListWithTagsType)
+    case listWithTags(_ viewModel: TileViewModel, type: FilterListWithTagsType)
     case stepper(_ viewModel: StepperViewModel)
     case picker(_ viewModel: PickerViewModel<String>)
 }
@@ -25,6 +25,6 @@ protocol FilterOptionsOutput: ObservableObject {
 }
 
 protocol FilterOptionsViewModelType: ObservableObject {
-    var input:  FilterOptionsInput { get set }
-    var output:  any FilterOptionsOutput { get }
+    var input: FilterOptionsInput { get set }
+    var output: any FilterOptionsOutput { get }
 }

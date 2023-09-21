@@ -1,11 +1,12 @@
 import Foundation
 import SwiftUI
 import UmbrellaAPI
+import Combine
 
-enum SceneRoute: Equatable, Hashable {
+enum SceneRoute {
     case flightList
     case filter
-    case searchPlaces
+    case searchPlaces(doneClosure: SearchPlacesViewModel.Done)
 }
 
 extension SceneRoute {
@@ -19,6 +20,14 @@ extension SceneRoute {
                     persistenStorage: persistentStore
                 )
             )
+        case let .searchPlaces(doneClosure):
+            SearchPlacesView(
+                viewModel: SearchPlacesViewModel(
+                    service: SearchPlacesService(apiClient: apiClient),
+                    done: doneClosure
+                )
+            )
+            
         default:
             EmptyView()
         }
@@ -26,5 +35,26 @@ extension SceneRoute {
 }
 
 extension SceneRoute: Identifiable {
-    var id: Self { self }
+    var id: String {
+        switch self {
+        case .flightList:
+            return "flightTest"
+        case .filter:
+            return "filter"
+        case .searchPlaces:
+            return "searchPlaces"
+        }
+    }
+}
+
+extension SceneRoute: Hashable {
+    func hash(into hasher: inout Hasher) {
+        id.hash(into: &hasher)
+    }
+}
+
+extension SceneRoute: Equatable {
+    static func == (lhs: SceneRoute, rhs: SceneRoute) -> Bool {
+        lhs.id == rhs.id
+    }
 }

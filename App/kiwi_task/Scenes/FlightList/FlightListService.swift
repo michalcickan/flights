@@ -5,6 +5,6 @@ protocol FlightListServiceType {
     
 }
 
-struct FlightListService:  FlightListServiceType {
+struct FlightListService: FlightListServiceType {
     let client: any APIClient
 }

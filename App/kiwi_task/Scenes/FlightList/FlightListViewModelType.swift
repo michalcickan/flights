@@ -11,6 +11,6 @@ protocol  FlightListOutput: ObservableObject {
 }
 
 protocol  FlightListViewModelType: ObservableObject {
-    var input:  FlightListInput { get set }
+    var input: FlightListInput { get set }
     var output: any FlightListOutput { get }
 }

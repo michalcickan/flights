@@ -5,7 +5,7 @@ protocol FilterOptionsServiceType {
     func fetchLocations(parameters: PlacesQueryParameters) async throws -> PlaceConnection
 }
 
-struct  FilterOptionsService:  FilterOptionsServiceType {
+struct FilterOptionsService: FilterOptionsServiceType {
     let client: any APIClient
     
     func fetchLocations(parameters: PlacesQueryParameters) async throws -> PlaceConnection {
