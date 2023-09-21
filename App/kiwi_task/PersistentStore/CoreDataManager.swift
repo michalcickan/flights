@@ -17,7 +17,7 @@ final class CoreDataStore: PersistenStore {
         }
         set(newFilter) {
             let context = container.viewContext
-            guard let newFilter = newFilter else {
+            guard let newFilter else {
                 return
             }
             defer {
@@ -60,7 +60,7 @@ final class CoreDataStore: PersistenStore {
     }
     
     
-    init() {
+    override init() {
         container.loadPersistentStores { persistentStoreDescription, error in
             if let error {
                 print("Core data store initialization has failed: \(error.localizedDescription)")

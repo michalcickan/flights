@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import UmbrellaAPI
 
 enum SceneRoute: Equatable, Hashable {
     case flightList
@@ -9,7 +10,7 @@ enum SceneRoute: Equatable, Hashable {
 
 extension SceneRoute {
     @ViewBuilder
-    var view: some View {
+    func view(_ persistentStore: PersistenStore, _ apiClient: Client) -> some View {
         switch self {
         case .filter:
             FilterOptionsView(

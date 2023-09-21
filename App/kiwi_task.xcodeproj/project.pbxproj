@@ -36,6 +36,8 @@
 		95FB46DF2ABC304E00B0115A /* Filter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46DB2ABC304E00B0115A /* Filter+CoreDataClass.swift */; };
 		95FB46E02ABC304E00B0115A /* Filter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46DC2ABC304E00B0115A /* Filter+CoreDataProperties.swift */; };
 		95FB46E22ABC321A00B0115A /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46E12ABC321A00B0115A /* PersistentStore.swift */; };
+		95FB46E42ABC395300B0115A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46E32ABC395300B0115A /* Config.swift */; };
+		95FB46E72ABC3D6800B0115A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46E62ABC3D6800B0115A /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		95FB46DB2ABC304E00B0115A /* Filter+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Filter+CoreDataClass.swift"; sourceTree = "<group>"; };
 		95FB46DC2ABC304E00B0115A /* Filter+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Filter+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		95FB46E12ABC321A00B0115A /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
+		95FB46E32ABC395300B0115A /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		95FB46E62ABC3D6800B0115A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 		951A3F292AB8547A00D491BA /* kiwi_task */ = {
 			isa = PBXGroup;
 			children = (
+				95FB46E52ABC3D5200B0115A /* API */,
 				95FB469E2ABC166C00B0115A /* PersistentStore */,
 				959055682ABB6BC900079D75 /* Router */,
 				951C0E842ABB40BE009E0D6D /* ViewModels */,
@@ -151,6 +156,7 @@
 				951A3F2C2AB8547A00D491BA /* ContentView.swift */,
 				951A3F2E2AB8547B00D491BA /* Assets.xcassets */,
 				951A3F302AB8547B00D491BA /* Preview Content */,
+				95FB46E32ABC395300B0115A /* Config.swift */,
 			);
 			path = kiwi_task;
 			sourceTree = "<group>";
@@ -271,6 +277,14 @@
 				95FB46DC2ABC304E00B0115A /* Filter+CoreDataProperties.swift */,
 			);
 			path = GeneratedModels;
+			sourceTree = "<group>";
+		};
+		95FB46E52ABC3D5200B0115A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				95FB46E62ABC3D6800B0115A /* APIClient.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +435,7 @@
 				95FB46E22ABC321A00B0115A /* PersistentStore.swift in Sources */,
 				951C0E7E2ABB3D15009E0D6D /* FlightListView.swift in Sources */,
 				951C0E862ABB40D3009E0D6D /* CardViewModel.swift in Sources */,
+				95FB46E72ABC3D6800B0115A /* APIClient.swift in Sources */,
 				951C0E8E2ABB5269009E0D6D /* FilterOptionsViewModelType.swift in Sources */,
 				9590556F2ABB6BC900079D75 /* Router.swift in Sources */,
 				951C0E8F2ABB5269009E0D6D /* FilterOptionsView.swift in Sources */,
@@ -428,6 +443,7 @@
 				95FB46A02ABC168100B0115A /* CoreDataManager.swift in Sources */,
 				951C0E7D2ABB3D15009E0D6D /* FlightListViewModelType.swift in Sources */,
 				95FB46DF2ABC304E00B0115A /* Filter+CoreDataClass.swift in Sources */,
+				95FB46E42ABC395300B0115A /* Config.swift in Sources */,
 				9590556D2ABB6BC900079D75 /* RoutingView.swift in Sources */,
 				951C0E912ABB5269009E0D6D /* FilterOptionsService.swift in Sources */,
 				959055702ABB6BC900079D75 /* SceneRoute.swift in Sources */,

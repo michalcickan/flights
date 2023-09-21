@@ -5,10 +5,6 @@ import UmbrellaAPI
 open class PersistenStore: ObservableObject {
     var places: [PersistentPlace]?
     var filter: PersistentFilter?
-    
-    init(places: [PersistentPlace]? = nil, filter: PersistentFilter? = nil) {
-     fatalError("Need to subclass")
-    }
 }
 
 struct PersistentFilter {

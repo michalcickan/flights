@@ -23,9 +23,9 @@ class Router: ObservableObject {
         state = State(isPresented: isPresented)
     }
     
-    func view(spec: SceneRoute, route: RouteType) -> AnyView {
+    func configure(view: any View, route: RouteType) -> AnyView {
         AnyView(
-            spec.view.environmentObject(router(route: route))
+            view.environmentObject(router(route: route))
         )
     }
 }

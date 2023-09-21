@@ -5,6 +5,7 @@ import Orbit
 struct FlightListView<VM: FlightListViewModelType>: View {
     @StateObject private var viewModel: VM
     @EnvironmentObject private var router: Router
+    @EnvironmentObject private var persistenStore: PersistenStore
     
     init(viewModel: VM) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -31,7 +32,11 @@ struct FlightListView<VM: FlightListViewModelType>: View {
 struct FlightListView_Previews: PreviewProvider {
     static var previews: some View {
         FlightListView(
-            viewModel: FlightListViewModel()
+            viewModel: FlightListViewModel(
+                service: FlightListService(
+                    client: PreviewAPIClient()
+                )
+            )
         )
     }
 }
