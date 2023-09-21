@@ -24,7 +24,7 @@ extension Client {
     }
 }
 
-fileprivate extension Client {
+private extension Client {
     var urlRequest: URLRequest {
         var request = URLRequest(url: baseURL)
         request.setMethod(.post)

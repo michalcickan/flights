@@ -28,6 +28,14 @@
 		9590556D2ABB6BC900079D75 /* RoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959055692ABB6BC900079D75 /* RoutingView.swift */; };
 		9590556F2ABB6BC900079D75 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590556B2ABB6BC900079D75 /* Router.swift */; };
 		959055702ABB6BC900079D75 /* SceneRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590556C2ABB6BC900079D75 /* SceneRoute.swift */; };
+		95FB46A02ABC168100B0115A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB469F2ABC168100B0115A /* CoreDataManager.swift */; };
+		95FB46A32ABC183800B0115A /* Flights.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46A12ABC183800B0115A /* Flights.xcdatamodeld */; };
+		95FB46B72ABC21BE00B0115A /* UmbrellaAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 95FB46B62ABC21BE00B0115A /* UmbrellaAPI */; };
+		95FB46DD2ABC304E00B0115A /* Place+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46D92ABC304E00B0115A /* Place+CoreDataClass.swift */; };
+		95FB46DE2ABC304E00B0115A /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46DA2ABC304E00B0115A /* Place+CoreDataProperties.swift */; };
+		95FB46DF2ABC304E00B0115A /* Filter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46DB2ABC304E00B0115A /* Filter+CoreDataClass.swift */; };
+		95FB46E02ABC304E00B0115A /* Filter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46DC2ABC304E00B0115A /* Filter+CoreDataProperties.swift */; };
+		95FB46E22ABC321A00B0115A /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB46E12ABC321A00B0115A /* PersistentStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +80,13 @@
 		959055692ABB6BC900079D75 /* RoutingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingView.swift; sourceTree = "<group>"; };
 		9590556B2ABB6BC900079D75 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		9590556C2ABB6BC900079D75 /* SceneRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneRoute.swift; sourceTree = "<group>"; };
+		95FB469F2ABC168100B0115A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		95FB46A22ABC183800B0115A /* Flights.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flights.xcdatamodel; sourceTree = "<group>"; };
+		95FB46D92ABC304E00B0115A /* Place+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataClass.swift"; sourceTree = "<group>"; };
+		95FB46DA2ABC304E00B0115A /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		95FB46DB2ABC304E00B0115A /* Filter+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Filter+CoreDataClass.swift"; sourceTree = "<group>"; };
+		95FB46DC2ABC304E00B0115A /* Filter+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Filter+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		95FB46E12ABC321A00B0115A /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				951C0E602ABAD81C009E0D6D /* Orbit in Frameworks */,
+				95FB46B72ABC21BE00B0115A /* UmbrellaAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,11 +119,13 @@
 		951A3F1E2AB8547A00D491BA = {
 			isa = PBXGroup;
 			children = (
+				95FB46A12ABC183800B0115A /* Flights.xcdatamodeld */,
 				951C0E5C2ABAD74E009E0D6D /* Packages */,
 				951A3F292AB8547A00D491BA /* kiwi_task */,
 				951A3F3A2AB8547B00D491BA /* kiwi_taskTests */,
 				951A3F442AB8547B00D491BA /* kiwi_taskUITests */,
 				951A3F282AB8547A00D491BA /* Products */,
+				95FB46B52ABC21BE00B0115A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +142,7 @@
 		951A3F292AB8547A00D491BA /* kiwi_task */ = {
 			isa = PBXGroup;
 			children = (
+				95FB469E2ABC166C00B0115A /* PersistentStore */,
 				959055682ABB6BC900079D75 /* Router */,
 				951C0E842ABB40BE009E0D6D /* ViewModels */,
 				951C0E812ABB3F0B009E0D6D /* Utils */,
@@ -226,6 +245,34 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		95FB469E2ABC166C00B0115A /* PersistentStore */ = {
+			isa = PBXGroup;
+			children = (
+				95FB46D02ABC2FA000B0115A /* GeneratedModels */,
+				95FB469F2ABC168100B0115A /* CoreDataManager.swift */,
+				95FB46E12ABC321A00B0115A /* PersistentStore.swift */,
+			);
+			path = PersistentStore;
+			sourceTree = "<group>";
+		};
+		95FB46B52ABC21BE00B0115A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95FB46D02ABC2FA000B0115A /* GeneratedModels */ = {
+			isa = PBXGroup;
+			children = (
+				95FB46D92ABC304E00B0115A /* Place+CoreDataClass.swift */,
+				95FB46DA2ABC304E00B0115A /* Place+CoreDataProperties.swift */,
+				95FB46DB2ABC304E00B0115A /* Filter+CoreDataClass.swift */,
+				95FB46DC2ABC304E00B0115A /* Filter+CoreDataProperties.swift */,
+			);
+			path = GeneratedModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,6 +291,7 @@
 			name = kiwi_task;
 			packageProductDependencies = (
 				951C0E5F2ABAD81C009E0D6D /* Orbit */,
+				95FB46B62ABC21BE00B0115A /* UmbrellaAPI */,
 			);
 			productName = kiwi_task;
 			productReference = 951A3F272AB8547A00D491BA /* kiwi_task.app */;
@@ -367,12 +415,19 @@
 				951C0E902ABB5269009E0D6D /* FilterOptionsViewModel.swift in Sources */,
 				951C0E802ABB3D15009E0D6D /* FlightListService.swift in Sources */,
 				951A3F2D2AB8547A00D491BA /* ContentView.swift in Sources */,
+				95FB46DE2ABC304E00B0115A /* Place+CoreDataProperties.swift in Sources */,
+				95FB46A32ABC183800B0115A /* Flights.xcdatamodeld in Sources */,
+				95FB46E02ABC304E00B0115A /* Filter+CoreDataProperties.swift in Sources */,
+				95FB46E22ABC321A00B0115A /* PersistentStore.swift in Sources */,
 				951C0E7E2ABB3D15009E0D6D /* FlightListView.swift in Sources */,
 				951C0E862ABB40D3009E0D6D /* CardViewModel.swift in Sources */,
 				951C0E8E2ABB5269009E0D6D /* FilterOptionsViewModelType.swift in Sources */,
 				9590556F2ABB6BC900079D75 /* Router.swift in Sources */,
 				951C0E8F2ABB5269009E0D6D /* FilterOptionsView.swift in Sources */,
+				95FB46DD2ABC304E00B0115A /* Place+CoreDataClass.swift in Sources */,
+				95FB46A02ABC168100B0115A /* CoreDataManager.swift in Sources */,
 				951C0E7D2ABB3D15009E0D6D /* FlightListViewModelType.swift in Sources */,
+				95FB46DF2ABC304E00B0115A /* Filter+CoreDataClass.swift in Sources */,
 				9590556D2ABB6BC900079D75 /* RoutingView.swift in Sources */,
 				951C0E912ABB5269009E0D6D /* FilterOptionsService.swift in Sources */,
 				959055702ABB6BC900079D75 /* SceneRoute.swift in Sources */,
@@ -719,7 +774,24 @@
 			package = 951C0E5E2ABAD81C009E0D6D /* XCRemoteSwiftPackageReference "orbit-swiftui" */;
 			productName = Orbit;
 		};
+		95FB46B62ABC21BE00B0115A /* UmbrellaAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UmbrellaAPI;
+		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		95FB46A12ABC183800B0115A /* Flights.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				95FB46A22ABC183800B0115A /* Flights.xcdatamodel */,
+			);
+			currentVersion = 95FB46A22ABC183800B0115A /* Flights.xcdatamodel */;
+			path = Flights.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 951A3F1F2AB8547A00D491BA /* Project object */;
 }

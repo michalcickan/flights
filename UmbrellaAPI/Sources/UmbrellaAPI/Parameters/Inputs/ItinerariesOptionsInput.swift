@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ItinerariesOptionsInput: ObjectStringConvertible {
-    enum SortBy: String, SimpleValueStringConvertible {
+    public enum SortBy: String, SimpleValueStringConvertible {
         case quality = "QUALITY"
     }
     
@@ -11,4 +11,18 @@ public struct ItinerariesOptionsInput: ObjectStringConvertible {
     let sortOrder: SortOrderInput?
     let sortVersion: Int?
     let storeSearch: Bool?
+    
+    public init(currency: String? = nil,
+                partner: String? = nil,
+                sortBy: ItinerariesOptionsInput.SortBy? = nil,
+                sortOrder: SortOrderInput? = nil,
+                sortVersion: Int? = nil,
+                storeSearch: Bool? = nil) {
+        self.currency = currency
+        self.partner = partner
+        self.sortBy = sortBy
+        self.sortOrder = sortOrder
+        self.sortVersion = sortVersion
+        self.storeSearch = storeSearch
+    }
 }

@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct kiwi_taskApp: App {
+    @StateObject private var persistentStore: PersistenStore = CoreDataStore()
+    
     var body: some Scene {
         WindowGroup {
             FlightListView(
                 viewModel: FlightListViewModel()
             )
             .environmentObject(Router(isPresented: .constant(.flightList)))
+            .environmentObject(persistentStore)
         }
     }
 }
