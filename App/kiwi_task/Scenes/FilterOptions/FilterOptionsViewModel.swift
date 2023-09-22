@@ -4,6 +4,8 @@ import Combine
 import UmbrellaAPI
 
 final class FilterOptionsViewModel: FilterOptionsOutput, FilterOptionsInput {
+    typealias Done = (PersistentFilter) -> Void
+    
     @Published private(set) var sections: DataState<[ListSection<FilterItem>]> = .loading
     
     // Output
@@ -15,6 +17,7 @@ final class FilterOptionsViewModel: FilterOptionsOutput, FilterOptionsInput {
     
     // Input
     let onAppear = PassthroughSubject<Void, Never>()
+    var onDisappear = PassthroughSubject<Void, Never>()
     @Published var adults: Int = 1
     
     // Rest
@@ -29,7 +32,9 @@ final class FilterOptionsViewModel: FilterOptionsOutput, FilterOptionsInput {
     private let service: FilterOptionsServiceType
     private let persistentStorage: PersistenStorage
     
-    init(service: FilterOptionsServiceType, persistenStorage: PersistenStorage) {
+    init(service: FilterOptionsServiceType,
+         persistenStorage: PersistenStorage,
+         done: @escaping Done) {
         self.service = service
         self.persistentStorage = persistenStorage
         onAppear
@@ -81,6 +86,10 @@ final class FilterOptionsViewModel: FilterOptionsOutput, FilterOptionsInput {
                 self.filter.copyWith(numberOfAdults: $0)
             }
             .assign(to: \.filter, on: self)
+            .store(in: &cancellables)
+        onDisappear
+            .map { [unowned self] in self.filter}
+            .sink(receiveValue: done)
             .store(in: &cancellables)
     }
 }

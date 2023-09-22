@@ -16,6 +16,7 @@ enum FilterItem: Hashable, Equatable, Identifiable {
 protocol FilterOptionsInput: AnyObject {
     var onAppear: PassthroughSubject<Void, Never> { get }
     var adults: Int { get set }
+    var onDisappear: PassthroughSubject<Void, Never> { get }
 }
 
 protocol FilterOptionsOutput: ObservableObject {

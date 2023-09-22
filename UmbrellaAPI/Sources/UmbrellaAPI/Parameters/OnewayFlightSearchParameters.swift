@@ -4,21 +4,17 @@ public struct OnewayFlightSearchParameters: ObjectStringConvertible {
     let filter: ItinerariesFilterInput?
     let options: ItinerariesOptionsInput?
     let search: SearchOnewayInput?
+    
+    public init(filter: ItinerariesFilterInput?,
+                options: ItinerariesOptionsInput?,
+                search: SearchOnewayInput?) {
+        self.filter = filter
+        self.options = options
+        self.search = search
+    }
 }
 
-extension OnewayFlightSearchParameters {    
-    public struct SearchPassengers: ObjectStringConvertible {
-        let adults: Int?
-        let adultsHandBags: [Int]?
-        let adultsHoldBags: [Int]?
-        
-        public init(adults: Int? = nil, adultsHandBags: [Int]? = nil, adultsHoldBags: [Int]? = nil) {
-            self.adults = adults
-            self.adultsHandBags = adultsHandBags
-            self.adultsHoldBags = adultsHoldBags
-        }
-    }
-
+extension OnewayFlightSearchParameters {
     public struct CabinClass: ObjectStringConvertible {
         let applyMixedClasses: Bool?
         let cabinClass: String?

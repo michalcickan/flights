@@ -95,7 +95,7 @@ fileprivate extension ManagedFilter {
 fileprivate extension ManagedPlace {
     var persistentPlace: PersistentPlace {
         PersistentPlace(
-            imageUrl: imageUrl,
+            legacyId: legacyId,
             id: id!,
             lat: lat,
             lng: lng,
@@ -107,7 +107,7 @@ fileprivate extension ManagedPlace {
 fileprivate extension PersistentPlace {
     func saveManagedObject(inContext context: NSManagedObjectContext) {
         let managedPlace = ManagedPlace(context: context)
-        managedPlace.imageUrl = imageUrl
+        managedPlace.legacyId = legacyId
         managedPlace.id = id
         managedPlace.lat = lat
         managedPlace.lng = lng

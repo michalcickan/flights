@@ -6,6 +6,6 @@ public struct ItineraryProvider: Decodable {
     public let name: String?
     public let code: String?
     public let subprovider: String?
-    public let contentProvider: ContentProvider
+    public let contentProvider: ContentProvider?
     public let hasHighProbabilityOfPriceChange: Bool?
 }

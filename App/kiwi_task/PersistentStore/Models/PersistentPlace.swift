@@ -2,7 +2,7 @@ import Foundation
 import UmbrellaAPI
 
 struct PersistentPlace {
-    let imageUrl: String?
+    let legacyId: String?
     let id: String
     let lat: Double
     let lng: Double
@@ -16,7 +16,7 @@ extension Array where Element == PlaceEdge {
                 return nil
             }
             return PersistentPlace(
-                imageUrl: node.legacyId,
+                legacyId: node.legacyId,
                 // this should not happen. Need to change graphql models from global to query specific
                 id: node.id ?? "",
                 lat: node.gps?.lat ?? 0,

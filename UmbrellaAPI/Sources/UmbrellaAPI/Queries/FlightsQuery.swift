@@ -28,8 +28,14 @@ extension FlightsQuery: Query {
                itineraries {
                  ... on ItineraryOneWay {
                    id duration cabinClasses priceEur { amount }
+                   highlights {
+                        isBest isCheapest isFastest
+                   }
+                  price {
+                        formattedValue
+                  }
                    bookingOptions {
-         edges {
+                     edges {
                        node { bookingUrl price { amount formattedValue } }
                      }
                    }

@@ -17,7 +17,11 @@ public actor Client {
 extension Client {
     public func fetch<T: Query>(query: T) async throws -> T.Model {
         var urlRequest = self.urlRequest
-        urlRequest.httpBody = try JSONEncoder().encode(query.queryModel)
+        do {
+            urlRequest.httpBody = try JSONEncoder().encode(query.queryModel)
+        } catch {
+            print(error)
+        }
         return try query.extractModel(
             from: try await dataProvider.rootReponse(for: urlRequest)
         )

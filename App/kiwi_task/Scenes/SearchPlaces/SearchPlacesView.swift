@@ -28,7 +28,7 @@ struct SearchPlacesView<VM: SearchPlacesViewModelType>: View {
                     }
                 }
                 Orbit.Button("Confirm", type: .primary) {
-                    viewModel.input.confirm.send(())
+                    viewModel.input.confirm.send()
                 }
                 .padding()
             }

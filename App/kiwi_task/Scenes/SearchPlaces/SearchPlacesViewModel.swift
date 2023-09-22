@@ -54,7 +54,7 @@ class SearchPlacesViewModel: SearchPlacesInput {
                 if !self.selectedEdges.value.isEmpty {
                     done(self.selectedEdges.value)
                 }
-                self._close.send(())
+                self._close.send()
             }
             .store(in: &cancellables)
     }
@@ -73,7 +73,13 @@ extension SearchPlacesViewModel: SearchPlacesOutput {
                             isSelected: selectedEdges.contains(where: { $0.node?.id == edge.node?.id })
                         ) {
                             guard let self else { return }
-                            self.selectedEdges.send(self.selectedEdges.value + [edge])
+                            var currentEdges = self.selectedEdges.value
+                            guard let index = currentEdges.firstIndex(where: { edge.node?.id == $0.node?.id }) else {
+                                self.selectedEdges.send(currentEdges + [edge])
+                                return
+                            }
+                            currentEdges.remove(at: index)
+                            self.selectedEdges.send(currentEdges)
                         }
                     )
             }

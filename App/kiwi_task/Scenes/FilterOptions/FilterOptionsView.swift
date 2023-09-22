@@ -90,10 +90,13 @@ struct FilterOptionsView<VM: FilterOptionsViewModelType>: View {
             }
         }
         .onAppear {
-            viewModel.input.onAppear.send(())
+            viewModel.input.onAppear.send()
         }
         .onReceive(viewModel.output.showRoute) {
             router.show($0, as: .sheet)
+        }
+        .onDisappear {
+            viewModel.input.onDisappear.send()
         }
     }
 }
@@ -104,7 +107,7 @@ private extension FilterOptionsView {
             isSnapping: true,
             spacing: .xxxSmall,
             itemWidth: .ratio(
-                3,
+                2,
                 maxWidth: .infinity
             )
         ) {
@@ -140,8 +143,16 @@ struct FilterOptionsView_Previews: PreviewProvider {
             viewModel: FilterOptionsViewModel(
                 service: FilterOptionsService(client: PreviewAPIClient()),
                 persistenStorage: PersistenStorage()
+            ) { _ in
+                
+            }
+        )
+        .environmentObject(
+            Router(
+                isPresented: .constant(
+                    .filter { _ in }
+                )
             )
         )
-        .environmentObject(Router(isPresented: .constant(.filter)))
     }
 }

@@ -16,7 +16,7 @@ extension ManagedPlace {
         return NSFetchRequest<ManagedPlace>(entityName: "Place")
     }
 
-    @NSManaged public var imageUrl: String?
+    @NSManaged public var legacyId: String?
     @NSManaged public var id: String?
     @NSManaged public var lat: Double
     @NSManaged public var lng: Double

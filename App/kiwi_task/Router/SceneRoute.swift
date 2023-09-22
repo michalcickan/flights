@@ -5,31 +5,41 @@ import Combine
 
 enum SceneRoute {
     case flightList
-    case filter
-    case searchPlaces(doneClosure: SearchPlacesViewModel.Done)
+    case filter(done: FilterOptionsViewModel.Done)
+    case searchPlaces(done: SearchPlacesViewModel.Done)
+    case flightDetail(_ itinerary: Itinerary)
 }
 
 extension SceneRoute {
     @ViewBuilder
     func view(_ persistentStore: PersistenStorage, _ apiClient: Client) -> some View {
         switch self {
-        case .filter:
+        case let .filter(done):
             FilterOptionsView(
                 viewModel: FilterOptionsViewModel(
                     service: FilterOptionsService(client: apiClient),
-                    persistenStorage: persistentStore
+                    persistenStorage: persistentStore,
+                    done: done
                 )
             )
-        case let .searchPlaces(doneClosure):
+        case let .searchPlaces(done):
             SearchPlacesView(
                 viewModel: SearchPlacesViewModel(
                     service: SearchPlacesService(apiClient: apiClient),
-                    done: doneClosure
+                    done: done
                 )
             )
-            
-        default:
-            EmptyView()
+        case let .flightDetail(itinerary):
+            FlightDetailView(
+                viewModel: FlightDetailViewModel(itinerary: itinerary)
+            )
+        case .flightList:
+            FlightListView(
+                viewModel: FlightListViewModel(
+                    service: FlightListService(client: apiClient),
+                    persistStore: persistentStore
+                )
+            )
         }
     }
 }
@@ -38,11 +48,13 @@ extension SceneRoute: Identifiable {
     var id: String {
         switch self {
         case .flightList:
-            return "flightTest"
+            return "flightList"
         case .filter:
             return "filter"
         case .searchPlaces:
             return "searchPlaces"
+        case .flightDetail:
+            return "flightDetail"
         }
     }
 }
