@@ -2,7 +2,7 @@ import Foundation
 import UmbrellaAPI
 import Combine
 
-class SearchPlacesViewModel: SearchPlacesInput {
+final class SearchPlacesViewModel: SearchPlacesInput {
     typealias Done = ([PlaceEdge]) -> Void
     private static let minChars = 3
     // Input
@@ -33,14 +33,13 @@ class SearchPlacesViewModel: SearchPlacesInput {
                 .debounce(for: .milliseconds(300), scheduler: DispatchQueue.global())
                 .flatMap { [weak self] query in
                     self?.selectedEdges.send([])
-                    return (query.count < SearchPlacesViewModel.minChars
-                            ? Future { promise in promise(.success([])) }
-                            : service.fetch(query: query)
+                    return (
+                        query.count < SearchPlacesViewModel.minChars
+                        ? Future { promise in promise(.success([])) }
+                        : service.fetch(query: query)
                     )
-                    .catch { [weak self] error in
-                        self?._showError.send(error.localizedDescription)
-                        return Just<[PlaceEdge]>([])
-                    }
+                    .makeOptionableIfError(self?._showError)
+                    .compactMap { $0 }
                 },
             selectedEdges
         )

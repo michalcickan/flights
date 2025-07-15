@@ -1,7 +1,7 @@
 import Foundation
 import UmbrellaAPI
 
-class FlightDetailViewModel: FlightDetailInput, ObservableObject {
+final class FlightDetailViewModel: FlightDetailInput, ObservableObject {
     private let itinerary: Itinerary
     
     

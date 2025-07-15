@@ -38,7 +38,7 @@ struct FlightDetailView<VM: FlightDetailViewModelType>: View {
                         
                     }
                     Collapse(
-                        "Booking links"
+                        "Booking links",
                     ) {
                         ForEach(viewModel.output.bookingLinks, id: \.self) {
                                 Link($0.title, destination: $0.destinationUrl)

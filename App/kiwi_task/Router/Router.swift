@@ -17,7 +17,7 @@ class Router: ObservableObject {
         }
     }
     
-    @Published private(set) var state: State
+    private(set) var state: State
     
     init(isPresented: Binding<SceneRoute?>) {
         state = State(isPresented: isPresented)
@@ -33,10 +33,6 @@ class Router: ObservableObject {
 extension Router {
     func navigateBack() {
         state.navigationPath.removeLast()
-    }
-    
-    func replaceNavigationStack(path: [SceneRoute]) {
-        state.navigationPath = path
     }
     
     func show(_ sceneRoute: SceneRoute, as route: RouteType) {

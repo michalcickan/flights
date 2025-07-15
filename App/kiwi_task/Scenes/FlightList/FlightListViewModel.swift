@@ -47,17 +47,15 @@ final class FlightListViewModel: ObservableObject, FlightListOutput, FlightListI
             .filter { [weak self] currentIndex in
                 self?.days[currentIndex] == nil
             }
-            .flatMap { [weak self] currentIndex in
+            .flatMap { [weak self] (currentIndex)  in
                 service.fetchOnewayItineraries(
                     filter: persistStore.filter ?? PersistentFilter(),
                     addDays: currentIndex,
                     totalItinerariesCount: self?.allItineraryIds.count ?? 0
                 )
-                .catch { error in
-                    self?._showError.send(error.localizedDescription)
-                    return Just<[Itinerary]>([])
-                }
+                .makeOptionableIfError(self?._showError)
             }
+            .compactMap { $0 }
             .map { [weak self] newData in
                 guard let self else { return newData }
                 let allItineraryIds = self.allItineraryIds
@@ -68,6 +66,7 @@ final class FlightListViewModel: ObservableObject, FlightListOutput, FlightListI
                         .prefix(FlightListViewModel.limit)
                 )
             }
+            .filter { $0.isEmpty }
             .receive(on: RunLoop.main)
             .map { [weak self] newData in
                 guard let self else { return newData }

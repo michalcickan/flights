@@ -82,9 +82,7 @@ final class FilterOptionsViewModel: FilterOptionsOutput, FilterOptionsInput {
         
         $adults
             .dropFirst()
-            .map {
-                self.filter.copyWith(numberOfAdults: $0)
-            }
+            .map { self.filter.copyWith(numberOfAdults: $0) }
             .assign(to: \.filter, on: self)
             .store(in: &cancellables)
         onDisappear
